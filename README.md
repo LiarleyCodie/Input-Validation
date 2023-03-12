@@ -1,5 +1,5 @@
 # :strawberry: [Input Validation](https://liarleycodie.github.io/Input-Validation/) :strawberry:
 
-Este é apenas um estudo de caso que precisei executar para concluir mais um desafio proposto pelo Frontend Mentor.
+:grapes: This is just a case study that I needed to test to complete yet another challenge proposed by Frontend Mentor.
 
-![Imagem do projeto](references/Normal.png)
+![project preview](references/Normal.png)
