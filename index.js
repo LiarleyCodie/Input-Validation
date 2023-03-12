@@ -1,19 +1,40 @@
-const input = document.querySelector("#input")
 const button = document.querySelector("#submit")
-const alert = document.querySelector("#alert")
+var existAnyInvalidEntry = false
 
-button.onclick = ev => ev.preventDefault()
+button.onclick = ev => {
+	ev.preventDefault()
 
-const allowedChars = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-input.addEventListener("input", ({ data, inputType }) => {
-	const inputValue = input.value
-	const isValidInput = inputValue.split('').every(char => allowedChars.includes(char))
-
-	if (!isValidInput) {
-		alert.classList.add("error")
-	} else {
-		alert.classList.remove("error")
+	if (input.element.value.trim() != "" && !existAnyInvalidEntry) {
+		alert("SEND")
 	}
-	console.log(inputValue.split(''))
+}
+
+const input = {
+	element: document.querySelector("#input"),
+	wrapper: document.querySelector("#usernameInput"),
+	allowedChars: "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+	checkEntry: function() {
+		const inputValue = this.element.value
+		const isValidInput = inputValue.split('').every(char => this.allowedChars.includes(char))
+
+		if (!isValidInput) {
+			existAnyInvalidEntry = true
+			return true
+		} else {
+			existAnyInvalidEntry = false
+			return false
+		}
+	},
+	updateElement: function(state) {
+		if (state) {
+			this.wrapper.classList.add("error")
+		} else {
+			this.wrapper.classList.remove("error")
+		}
+	}
+}
+
+input.element.addEventListener("input", ({ data, inputType }) => {
+	input.checkEntry()
+	input.updateElement(input.checkEntry())
 })

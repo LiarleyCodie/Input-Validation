@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Input Validation</title>
-	<style>
-		form * {
-			display: block;
-		}
-
-		.error {
-			color: red;
-		}
-	</style>
+	<link rel="stylesheet" href="index.css">
 </head>
 <body>
+	<h1 class="title">Sign in</h1>
 	<form target="_blank">
-		<input id="input" type="text" maxlength="30" required>
-		<label class="" id="alert">Use only letters and white spaces!</label>
-		<button id="submit">Continue</button>
+		<div class="input-block" id="usernameInput">
+			<label for="input">Username</label>
+			<input id="input" placeholder="Type something..." type="text" maxlength="30" required>
+			<span>Use only letters without accents</span>
+		</div>
+		<button id="submit">Sign in</button>
 	</form>
 
 	<script src="index.js"></script>
